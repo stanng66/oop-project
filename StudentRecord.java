@@ -23,7 +23,7 @@ public class StudentRecord {
   }
 
   // Decision Making - letter grade 
-  public String getLetterGrade() {   // need a setter
+  public String letterGrade() { 
     double m = studentGrades;
     if (m >= 80) return "A";
     else if (m >= 70) return "B";
@@ -33,7 +33,7 @@ public class StudentRecord {
   }
 
   // Pass/fail status base on input grades
-  public String getStatus() {   // need a setter
+  public String evaluateStatus() {   
     return studentGrades >= 50 ? "PASS" : "FAIL";
   }
 
@@ -74,6 +74,6 @@ public class StudentRecord {
   // Display all existing students in the records
   // ====================
   public String toString() {
-    return studentName + " (ID: " + studentID + ") - Marks: " + studentGrades + " Grade: " + getLetterGrade() + " Status: " + getStatus();
+    return studentName + " (ID: " + studentID + ") - Marks: " + studentGrades + " Grade: " + letterGrade() + " Status: " + evaluateStatus();
   }
 }

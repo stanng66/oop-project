@@ -35,34 +35,7 @@ public class SchoolDatabase {
   }
 
   // ====================
-  // Method 3 - Updating/modifying student grades
-  // ====================
-  public void updateMarks(String studentID, double newGrades) {
-    for (StudentRecord updateStudentList : studentList) {
-      if (updateStudentList.getStudentID().equals(studentID)) {
-        updateStudentList.setStudentGrades(newGrades);
-        System.out.println("Marks updated.");
-        return;
-      }
-    }
-    System.out.println("Student not found.");
-  }
-
-  // ====================
-  // Method 4 - Calculate grade averages
-  // ====================
-  public double getAverage() {
-    if (studentList.isEmpty()) return 0;
-
-    double total = 0;
-    for (StudentRecord s : studentList) {
-      total += s.getStudentGrades();
-    }
-    return total / studentList.size();
-  }
-
-  // ====================
-  // Method 5 - Search student by id
+  // Method 3 - Search student by id
   // ====================
   public void searchStudent(String searchStudentID) {
     for (StudentRecord searchStudentList : studentList) {
@@ -76,7 +49,7 @@ public class SchoolDatabase {
   }
 
   // ====================
-  // Method 6 - Delete Student information
+  // Method 4 - Delete Student information
   // ====================
   public void deleteStudent(String deleteStudentID) {
     for (StudentRecord deleteStudentList : studentList) {
@@ -87,6 +60,33 @@ public class SchoolDatabase {
       }
     }
     System.out.println("Student not found.");
+  }
+
+  // ====================
+  // Method 5 - Updating/modifying student grades
+  // ====================
+  public void updateMarks(String studentID, double newGrades) {
+    for (StudentRecord updateStudentList : studentList) {
+      if (updateStudentList.getStudentID().equals(studentID)) {
+        updateStudentList.setStudentGrades(newGrades);
+        System.out.println("Marks updated.");
+        return;
+      }
+    }
+    System.out.println("Student not found.");
+  }
+
+  // ====================
+  // Method 6 - Calculate grade averages
+  // ====================
+  public double getAverage() {
+    if (studentList.isEmpty()) return 0;
+
+    double total = 0;
+    for (StudentRecord s : studentList) {
+      total += s.getStudentGrades();
+    }
+    return total / studentList.size();
   }
 
   // ====================
