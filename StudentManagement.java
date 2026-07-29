@@ -109,4 +109,21 @@ public class StudentManagement {
     System.out.println("Highest Grade: " + highestStudentGrade.getStudentGrades());
     System.out.println("Student: " + highestStudentGrade.getStudentName() + " (ID: " + highestStudentGrade.getStudentID() + ")");
   }
+
+  // ====================
+  // Method 8 - Finds the percentage of students with a passing grade
+  // ====================
+  public double getPassingStudents() {
+    if (studentList.isEmpty()) return 0;
+    int passCount = 0;
+
+    for (StudentRecord studentRecord : studentList) {
+      if (studentRecord.getStudentGrades() >=50) {
+        passCount++;
+      }
+    }
+
+    double averagePercentage = (double) passCount / studentList.size() * 100;
+    return averagePercentage;
+  }
 }

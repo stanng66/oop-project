@@ -27,10 +27,11 @@ public class Main {
       System.out.println("3. Search Student by ID");
       System.out.println("4. Delete Student Record");
       System.out.println("5. Update Student Grades");
-      System.out.println("6. Show Average Grades");
+      System.out.println("6. Show Average Class Grades");
       System.out.println("7. Highest Grade");
-      System.out.println("8. About this system");
-      System.out.println("9. Exit");
+      System.out.println("8. Students Passing Percentage");
+      System.out.println("9. About this system");
+      System.out.println("10. Exit");
       System.out.println("------------------------------------");
       System.out.print("Choose an option: ");
 
@@ -94,25 +95,31 @@ public class Main {
         curStudentRec.updateMarks(updateID, newGrades);
         break;
 
-        // computing grade averages
+        // computing class averages
         case 6: 
         System.out.println("Average marks: " + curStudentRec.getAverage());
         break;
 
         // Retrieve existing highest grade
         case 7:
-        System.out.println("Highest Grade:");
+        System.out.println("Highest grade in class");
         curStudentRec.getHighestMark();
         break;
 
-        // Basic about the program
-        case 8: 
+        // Compute percentage of students with passing grade
+        case 8:
+          double passingStudents = curStudentRec.getPassingStudents();
+          System.out.println("Percentage of students passing: " + passingStudents + "%");
+          break;
+
+        // Basic about page for the program
+        case 9: 
         System.out.println("This system manages student academic records using OOP principles.");
         System.out.println("Developed by: Stanley Nguyen");
         break;
   
         // Exit program
-        case 9: 
+        case 10: 
         System.out.println("You have exited the Campus Student System. Goodbye!");
         return;
 
