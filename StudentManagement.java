@@ -18,6 +18,13 @@ public class StudentManagement {
   // Method 1 - Add Students
   // ====================
   public void addStudent(StudentRecord newStudentList) {
+    for (StudentRecord s : studentList) {
+      if (s.getStudentID().equals(newStudentList.getStudentID())) {
+        System.out.println("A student with this ID already exists. Please use a unique ID.");
+        return;
+      }
+    }
+
     studentList.add(newStudentList);
   }
 
@@ -113,7 +120,7 @@ public class StudentManagement {
   // ====================
   // Method 8 - Finds the percentage of students with a passing grade
   // ====================
-  public double getPassingStudents() {
+  public double calculatePassingPercentage() {
     if (studentList.isEmpty()) return 0;
     int passCount = 0;
 

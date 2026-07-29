@@ -56,7 +56,14 @@ public class Main {
         System.out.print("Enter ID: ");
         String userID = scanner.nextLine();
         System.out.print("Enter marks: ");
-        double userGrades = scanner.nextDouble();
+        // double userGrades = scanner.nextDouble();
+        double userGrades;
+        try {
+          userGrades = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+          System.out.println("Invalid grade. Please enter a number between 0 and 100.");
+          break;
+        }
 
         // User grades input validation 
         if (userGrades < 0 || userGrades > 100) {
@@ -91,7 +98,14 @@ public class Main {
         System.out.print("Enter ID to update: ");
         String updateID = scanner.nextLine();
         System.out.print("Enter new marks: ");
-        double newGrades = scanner.nextDouble();
+        // double newGrades = scanner.nextDouble();
+        double newGrades;
+        try {
+          newGrades = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+          System.out.println("Invalid grade. Please enter a number between 0 and 100.");
+          break;
+        }
         curStudentRec.updateMarks(updateID, newGrades);
         break;
 
@@ -108,7 +122,7 @@ public class Main {
 
         // Compute percentage of students with passing grade
         case 8:
-          double passingStudents = curStudentRec.getPassingStudents();
+          double passingStudents = curStudentRec.calculatePassingPercentage();
           System.out.println("Percentage of students passing: " + passingStudents + "%");
           break;
 
