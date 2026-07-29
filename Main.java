@@ -28,20 +28,20 @@ public class Main {
 
     while (true) {
       // Display a menu to the user
-      System.out.println(CYAN + "\n====================================" + RESET);
-      System.out.println(PURPLE + "||      Student Record System     ||" + RESET);
-      System.out.println(CYAN + "===================================="  + RESET);
-      System.out.println(" 1. Add Student information");
-      System.out.println(" 2. View all Students");
-      System.out.println(" 3. Search Student by ID");
-      System.out.println(" 4. Delete Student Record");
-      System.out.println(" 5. Update Student Grades");
-      System.out.println(" 6. Show Average Class Grades");
-      System.out.println(" 7. Highest Grade");
-      System.out.println(" 8. Students Passing Percentage");
-      System.out.println(" 9. About this system");
-      System.out.println(" 10. Exit");
-      System.out.println("------------------------------------");
+      System.out.println(CYAN + "\n======================================" + RESET);
+      System.out.println(PURPLE + "||       Student Record System      ||" + RESET);
+      System.out.println(CYAN + "======================================"  + RESET);
+      System.out.println("|| 1. Add Student information       ||");
+      System.out.println("|| 2. View all Students             ||");
+      System.out.println("|| 3. Search Student by ID          ||");
+      System.out.println("|| 4. Delete Student Record         ||");
+      System.out.println("|| 5. Update Student Grades         ||");
+      System.out.println("|| 6. Show Average Class Grades     ||");
+      System.out.println("|| 7. Highest Grade                 ||");
+      System.out.println("|| 8. Students Passing Percentage   ||");
+      System.out.println("|| 9. About this system             ||");
+      System.out.println("|| 10. Exit                         ||");
+      System.out.println(CYAN + "--------------------------------------" + RESET);
       System.out.print("Choose an option: ");
 
       // Input scanner and error handling Validation for menu choices
@@ -57,24 +57,26 @@ public class Main {
       switch (choice) {   
         // Add new student information
         case 1: 
-          System.out.print("Enter name: ");
+          System.out.print(YELLOW + "Enter name:" + RESET);
           String userName = scanner.nextLine();
-          System.out.print("Enter ID: ");
+          System.out.print(YELLOW + "Enter ID:" + RESET);
           String userID = scanner.nextLine();
-          System.out.print("Enter marks: ");
-          // double userGrades = scanner.nextDouble();
+          System.out.print(YELLOW + "Enter marks:" + RESET);
           double userGrades;
-          try {
-            userGrades = Double.parseDouble(scanner.nextLine());
-          } catch (NumberFormatException e) {
-            System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
-            break;
-          }
+          while (true) {
+            try {
+              userGrades = Double.parseDouble(scanner.nextLine());
 
-          // User grades input validation 
-          if (userGrades < 0 || userGrades > 100) {
-            System.out.println(RED + "Invalid marks. Grade must be between 0 and 100." + RESET);
-            break;
+              if (userGrades < 0 || userGrades > 100) {   // Checks for valid numeric range
+                System.out.println(RED + "Invalid marks. Grade must be between 0 and 100." + RESET);
+                System.out.print(YELLOW + "Enter marks:" + RESET);
+                continue; // Ask again
+              }
+              break;
+            } catch (NumberFormatException e) {   // Check for valid numeric input
+              System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
+              System.out.print(YELLOW + "Enter marks:" + RESET);
+            }
           }
 
           curStudentRec.addStudent(new StudentRecord(userName, userID, userGrades));
@@ -83,13 +85,13 @@ public class Main {
           break;
 
         // Retrieving and displaying stored data
-          case 2: curStudentRec.viewStudents();
+        case 2: curStudentRec.viewStudents();
           pause(scanner);
           break;
 
         // Search student data by ID
         case 3: 
-          System.out.println("Enter ID to Search: ");
+          System.out.println(YELLOW + "Enter ID to Search:" + RESET);
           String searchID = scanner.nextLine();
           curStudentRec.searchStudent(searchID);
           pause(scanner);
@@ -97,7 +99,7 @@ public class Main {
 
         // Delete information
         case 4: 
-          System.out.println("Enter ID to Delete: ");
+          System.out.println(YELLOW + "Enter ID to Delete:" + RESET);
           String deleteID = scanner.nextLine();
           curStudentRec.deleteStudent(deleteID);
           pause(scanner);
@@ -105,7 +107,7 @@ public class Main {
 
         // Updating student grade
         case 5: 
-          System.out.print("Enter ID to update: ");
+          System.out.print(YELLOW + "Enter ID to update: " + RESET);
           String updateID = scanner.nextLine();
           System.out.print("Enter new marks: ");
           double newGrades;
