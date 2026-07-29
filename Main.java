@@ -61,23 +61,8 @@ public class Main {
           String userName = scanner.nextLine();
           System.out.print(YELLOW + "Enter ID:" + RESET);
           String userID = scanner.nextLine();
-          System.out.print(YELLOW + "Enter marks:" + RESET);
-          double userGrades;
-          while (true) {
-            try {
-              userGrades = Double.parseDouble(scanner.nextLine());
-
-              if (userGrades < 0 || userGrades > 100) {   // Checks for valid numeric range
-                System.out.println(RED + "Invalid marks. Grade must be between 0 and 100." + RESET);
-                System.out.print(YELLOW + "Enter marks:" + RESET);
-                continue; // Ask again
-              }
-              break;
-            } catch (NumberFormatException e) {   // Check for valid numeric input
-              System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
-              System.out.print(YELLOW + "Enter marks:" + RESET);
-            }
-          }
+          System.out.print(YELLOW + "Enter grade:" + RESET);
+          double userGrades = getValidGrade(scanner);
 
           curStudentRec.addStudent(new StudentRecord(userName, userID, userGrades));
           System.out.println(GREEN + "Student information added." + RESET);
@@ -109,14 +94,8 @@ public class Main {
         case 5: 
           System.out.print(YELLOW + "Enter ID to update: " + RESET);
           String updateID = scanner.nextLine();
-          System.out.print("Enter new marks: ");
-          double newGrades;
-          try {
-            newGrades = Double.parseDouble(scanner.nextLine());
-          } catch (NumberFormatException e) {
-            System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
-            break;
-          }
+          System.out.print(YELLOW + "Enter new grade: " + RESET);
+          double newGrades = getValidGrade(scanner);
           curStudentRec.updateMarks(updateID, newGrades);
           pause(scanner);
           break;
@@ -161,5 +140,26 @@ public class Main {
   private static void pause(Scanner scanner) {
     System.out.print(YELLOW + "\nPress Enter to return to the menu..." + RESET);
     scanner.nextLine();
+  }
+
+  // Input validation for cases 1 and 5 grades
+  public static double getValidGrade(Scanner scanner) {
+    double grade;
+    while (true) {
+      try {
+        grade = Double.parseDouble(scanner.nextLine());
+
+        if (grade < 0 || grade > 100) {
+          System.out.println(RED + "Invalid grades. Grade must be between 0 and 100." + RESET);
+          continue;
+        }
+
+        return grade;
+
+      } catch (NumberFormatException e) {
+        System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
+      }
+      System.out.print(YELLOW + "Enter a valid grade:" + RESET);
+    }
   }
 }
