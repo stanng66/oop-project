@@ -11,7 +11,7 @@
 // Handles studentRecord objects and various methods
 import java.util.ArrayList;
 
-public class SchoolDatabase {
+public class StudentManagement {
   private ArrayList<StudentRecord> studentList = new ArrayList<>();
 
   // ====================
