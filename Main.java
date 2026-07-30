@@ -28,20 +28,21 @@ public class Main {
 
     while (true) {
       // Display a menu to the user
-      System.out.println(CYAN + "\n======================================" + RESET);
-      System.out.println(PURPLE + "||       Student Record System      ||" + RESET);
-      System.out.println(CYAN + "======================================"  + RESET);
-      System.out.println("|| 1. Add Student information       ||");
-      System.out.println("|| 2. View all Students             ||");
-      System.out.println("|| 3. Search Student by ID          ||");
-      System.out.println("|| 4. Delete Student Record         ||");
-      System.out.println("|| 5. Update Student Grades         ||");
-      System.out.println("|| 6. Show Average Class Grades     ||");
-      System.out.println("|| 7. Highest Grade                 ||");
-      System.out.println("|| 8. Students Passing Percentage   ||");
-      System.out.println("|| 9. About this system             ||");
-      System.out.println("|| 10. Exit                         ||");
-      System.out.println(CYAN + "--------------------------------------" + RESET);
+      System.out.println(CYAN + "\n=========================================" + RESET);
+      System.out.println(PURPLE + "||       Student Record Management      ||" + RESET);
+      System.out.println(PURPLE + "||         Class: Geography 101         ||" + RESET);
+      System.out.println(CYAN + "========================================="  + RESET);
+      System.out.println("||   1. Add New Student                 ||");
+      System.out.println("||   2. View Students                   ||");
+      System.out.println("||   3. Search Student                  ||");
+      System.out.println("||   4. Delete Student                  ||");
+      System.out.println("||   5. Update Student                  ||");
+      System.out.println("||   6. Average Class Grades            ||");
+      System.out.println("||   7. Highest Grade                   ||");
+      System.out.println("||   8. Passing Percentage              ||");
+      System.out.println("||   9. About                           ||");
+      System.out.println("||   10. Exit                           ||");
+      System.out.println(CYAN + "-----------------------------------------" + RESET);
       System.out.print("Choose an option: ");
 
       // Input scanner and error handling Validation for menu choices
