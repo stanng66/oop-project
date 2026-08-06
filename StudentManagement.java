@@ -72,11 +72,11 @@ public class StudentManagement {
   // ====================
   // Method 5 - Updating/modifying student grades
   // ====================
-  public void updateMarks(String studentID, double newGrades) {
+  public void updateGrade(String studentID, double newGrades) {
     for (StudentRecord updateStudentList : studentList) {
       if (updateStudentList.getStudentID().equals(studentID)) {
         updateStudentList.setStudentGrades(newGrades);
-        System.out.println("Marks updated.");
+        System.out.println("Grade updated.");
         return;
       }
     }
@@ -99,7 +99,7 @@ public class StudentManagement {
   // ====================
   // Method 7 - Finds the highest grade in the student record
   // ====================
-  public void getHighestMark() {
+  public void getHighestGrade() {
     if (studentList.isEmpty()) {
       System.out.println("No students found.");
       return;

@@ -22,7 +22,6 @@ public class Main {
   public static final String PURPLE = "\u001B[35m";
     
   public static void main(String[] args) {
-    // @SuppressWarnings("resource")   // Gets rid of yellow warning on scanner
     Scanner scanner = new Scanner(System.in);   
     StudentManagement curStudentRec = new StudentManagement();
 
@@ -50,7 +49,7 @@ public class Main {
       try { 
         choice = Integer.parseInt(scanner.nextLine());
       } catch (NumberFormatException e) {   // Catches error if user enters options outside of range
-        System.out.println(RED + "Invalid input. Please enter a number from 1 to 8." + RESET);
+        System.out.println(RED + "Invalid input. Please enter a number from 1 to 10." + RESET);
         pause(scanner);
         continue;
       } 
@@ -97,20 +96,20 @@ public class Main {
           String updateID = scanner.nextLine();
           System.out.print(YELLOW + "Enter new grade: " + RESET);
           double newGrades = getValidGrade(scanner);
-          curStudentRec.updateMarks(updateID, newGrades);
+          curStudentRec.updateGrade(updateID, newGrades);
           pause(scanner);
           break;
 
         // computing class averages
         case 6: 
-          System.out.println("Average marks: " + curStudentRec.getAverage());
+          System.out.println("Average grades: " + curStudentRec.getAverage());
           pause(scanner);
           break;
 
         // Retrieve existing highest grade
         case 7:
           System.out.println("Highest grade in class");
-          curStudentRec.getHighestMark();
+          curStudentRec.getHighestGrade();
           pause(scanner);
           break;
 
@@ -138,6 +137,7 @@ public class Main {
     }
   }
 
+  // Press enter to return to the menu
   private static void pause(Scanner scanner) {
     System.out.print(YELLOW + "\nPress Enter to return to the menu..." + RESET);
     scanner.nextLine();

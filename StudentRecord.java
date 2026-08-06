@@ -24,11 +24,11 @@ public class StudentRecord {
 
   // Decision Making - letter grade 
   public String letterGrade() { 
-    double m = studentGrades;
-    if (m >= 80) return "A";
-    else if (m >= 70) return "B";
-    else if (m >= 60) return "C";
-    else if (m >= 50) return "D";
+    double numericGrade = studentGrades;
+    if (numericGrade >= 80) return "A";
+    else if (numericGrade >= 70) return "B";
+    else if (numericGrade >= 60) return "C";
+    else if (numericGrade >= 50) return "D";
     else return "F";
   }
 
@@ -74,6 +74,6 @@ public class StudentRecord {
   // Display all existing students in the records
   // ====================
   public String toString() {
-    return studentName + " (ID: " + studentID + ") - Marks: " + studentGrades + " Grade: " + letterGrade() + " Status: " + evaluateStatus();
+    return studentName + " (ID: " + studentID + ") - Grade: " + studentGrades + " Letter grade: " + letterGrade() + " Status: " + evaluateStatus();
   }
 }
