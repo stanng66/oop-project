@@ -6,7 +6,7 @@
 // Ronak Sheth
 // August 16, 2026
 // --------------------
-// This program demonstrates 
+// This program demonstrates using Java, showcasing OOP design, ArrayList data storage, input validation, and menu‑driven user interaction.
 // ====================
 // Represents one student information (name, id, grades, grade calculation, pass/fail status)
 public class StudentRecord {

@@ -6,7 +6,7 @@
 // Ronak Sheth
 // August 16, 2026
 // --------------------
-// This program demonstrates 
+// This program demonstrates using Java, showcasing OOP design, ArrayList data storage, input validation, and menu‑driven user interaction.
 // ====================
 // Handles menu, user inputs, and calling methods from other classes
 import java.util.Scanner;
