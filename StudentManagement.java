@@ -72,11 +72,11 @@ public class StudentManagement {
   // ====================
   // Method 5 - Updating/modifying student grades
   // ====================
-  public void updateGrade(String studentID, double newGrades) {
+  public void updateMark(String studentID, double newMark) {
     for (StudentRecord updateStudentList : studentList) {
       if (updateStudentList.getStudentID().equals(studentID)) {
-        updateStudentList.setStudentGrades(newGrades);
-        System.out.println("Grade updated.");
+        updateStudentList.setStudentMark(newMark);
+        System.out.println("Mark updated.");
         return;
       }
     }
@@ -91,7 +91,7 @@ public class StudentManagement {
 
     double total = 0;
     for (StudentRecord s : studentList) {
-      total += s.getStudentGrades();
+      total += s.getStudentMark();
     }
     return total / studentList.size();
   }
@@ -108,24 +108,24 @@ public class StudentManagement {
     StudentRecord highestStudentGrade = studentList.get(0);
 
     for (StudentRecord studentRecord : studentList) {
-      if (studentRecord.getStudentGrades() > highestStudentGrade.getStudentGrades()) {
+      if (studentRecord.getStudentMark() > highestStudentGrade.getStudentMark()) {
         highestStudentGrade = studentRecord;
       }
     }
 
-    System.out.println("Highest Grade: " + highestStudentGrade.getStudentGrades());
+    System.out.println("Highest Mark: " + highestStudentGrade.getStudentMark());
     System.out.println("Student: " + highestStudentGrade.getStudentName() + " (ID: " + highestStudentGrade.getStudentID() + ")");
   }
 
   // ====================
-  // Method 8 - Finds the percentage of students with a passing grade
+  // Method 8 - Finds the percentage of students with a passing mark  
   // ====================
   public double calculatePassingPercentage() {
     if (studentList.isEmpty()) return 0;
     int passCount = 0;
 
     for (StudentRecord studentRecord : studentList) {
-      if (studentRecord.getStudentGrades() >=50) {
+      if (studentRecord.getStudentMark() >= 50) {
         passCount++;
       }
     }

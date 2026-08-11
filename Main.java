@@ -61,10 +61,10 @@ public class Main {
           String userName = scanner.nextLine();
           System.out.print(YELLOW + "Enter ID:" + RESET);
           String userID = scanner.nextLine();
-          System.out.print(YELLOW + "Enter grade:" + RESET);
-          double userGrades = getValidGrade(scanner);
+          System.out.print(YELLOW + "Enter mark:" + RESET);
+          double userMark = getValidMark(scanner);
 
-          curStudentRec.addStudent(new StudentRecord(userName, userID, userGrades));
+          curStudentRec.addStudent(new StudentRecord(userName, userID, userMark));
           System.out.println(GREEN + "Student information added." + RESET);
           pause(scanner);
           break;
@@ -94,15 +94,15 @@ public class Main {
         case 5: 
           System.out.print(YELLOW + "Enter ID to update: " + RESET);
           String updateID = scanner.nextLine();
-          System.out.print(YELLOW + "Enter new grade: " + RESET);
-          double newGrades = getValidGrade(scanner);
-          curStudentRec.updateGrade(updateID, newGrades);
+          System.out.print(YELLOW + "Enter new mark: " + RESET);
+          double newMark = getValidMark(scanner);
+          curStudentRec.updateMark(updateID, newMark);
           pause(scanner);
           break;
 
         // computing class averages
         case 6: 
-          System.out.println("Average grades: " + curStudentRec.getAverage());
+          System.out.println("Average marks: " + curStudentRec.getAverage());
           pause(scanner);
           break;
 
@@ -143,24 +143,24 @@ public class Main {
     scanner.nextLine();
   }
 
-  // Input validation for cases 1 and 5 grades
-  public static double getValidGrade(Scanner scanner) {
-    double grade;
+  // Input validation for cases 1 and 5 marks
+  public static double getValidMark(Scanner scanner) {
+    double mark;
     while (true) {
       try {
-        grade = Double.parseDouble(scanner.nextLine());
+        mark = Double.parseDouble(scanner.nextLine());
 
-        if (grade < 0 || grade > 100) {
-          System.out.println(RED + "Invalid grades. Grade must be between 0 and 100." + RESET);
+        if (mark < 0 || mark > 100) {
+          System.out.println(RED + "Invalid marks. Mark must be between 0 and 100." + RESET);
           continue;
         }
 
-        return grade;
+        return mark;
 
       } catch (NumberFormatException e) {
-        System.out.println(RED + "Invalid grade. Please enter a number between 0 and 100." + RESET);
+        System.out.println(RED + "Invalid mark. Please enter a number between 0 and 100." + RESET);
       }
-      System.out.print(YELLOW + "Enter a valid grade:" + RESET);
+      System.out.print(YELLOW + "Enter a valid mark:" + RESET);
     }
   }
 }

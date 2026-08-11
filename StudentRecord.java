@@ -13,28 +13,28 @@ public class StudentRecord {
   // Student with relevant information (name, ID, and grades)
   private String studentName;
   private String studentID;
-  private double studentGrades;
+  private double studentMark;
 
   // Constructor initializes student object
   public StudentRecord(String parmStudentName, String parmStudentID, double parmStudentgrades) {
     this.studentName = parmStudentName;
     this.studentID = parmStudentID;
-    this.studentGrades = parmStudentgrades;
+    this.studentMark = parmStudentgrades;
   }
 
   // Decision Making - letter grade 
   public String letterGrade() { 
-    double numericGrade = studentGrades;
-    if (numericGrade >= 80) return "A";
-    else if (numericGrade >= 70) return "B";
-    else if (numericGrade >= 60) return "C";
-    else if (numericGrade >= 50) return "D";
+    double numericMark = studentMark;
+    if (numericMark >= 80) return "A";
+    else if (numericMark >= 70) return "B";
+    else if (numericMark >= 60) return "C";
+    else if (numericMark >= 50) return "D";
     else return "F";
   }
 
   // Pass/fail status base on input grades
   public String evaluateStatus() {   
-    return studentGrades >= 50 ? "PASS" : "FAIL";
+    return studentMark >= 50 ? "PASS" : "FAIL";
   }
 
   // ====================
@@ -60,20 +60,20 @@ public class StudentRecord {
   }
 
   // ====================
-  // Student grade getter and setter
+  // Student mark getter and setter
   // ====================
-  public double getStudentGrades() {
-    return studentGrades;
+  public double getStudentMark() {
+    return studentMark;
   }
 
-  public void setStudentGrades(double newGrade) {
-    this.studentGrades = newGrade;
+  public void setStudentMark(double newMark) {
+    this.studentMark = newMark;
   }
 
   // ====================
   // Display all existing students in the records
   // ====================
   public String toString() {
-    return studentName + " (ID: " + studentID + ") - Grade: " + studentGrades + " Letter grade: " + letterGrade() + " Status: " + evaluateStatus();
+    return studentName + " (ID: " + studentID + ") - Mark: " + studentMark + " Letter grade: " + letterGrade() + " Status: " + evaluateStatus();
   }
 }
